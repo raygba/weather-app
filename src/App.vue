@@ -7,14 +7,20 @@ const places = ref([])
 const addPlace = (data) => {
   places.value.push(data)
 }
+
+const deletePlace = (name) => {
+  if (confirm('Are you sure?')) {
+    places.value = places.value.filter((p) => p.location.name !== name)
+  }
+}
 </script>
 
 <template>
   <main>
-    <h1>The Weather</h1>
+    <h1 class="text-3xl mb-3">The Weather</h1>
 
     <!-- Date -->
-    <div class="text-center mb-6">
+    <div class="text-lg mb-6">
       {{ new Date().toLocaleDateString('en-us', {
         weekday: 'long',
         year: 'numeric',
@@ -31,7 +37,7 @@ const addPlace = (data) => {
     <!-- Weather card -->
     <div class="grid grid-cols-2 gap-4">
       <div v-for="(place, idx) in places" :key="idx">
-        <WeatherCard :place="place" />
+        <WeatherCard :place="place" @delete-place="deletePlace" />
       </div>
     </div>
   </main>

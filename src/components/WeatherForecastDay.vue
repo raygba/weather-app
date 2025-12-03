@@ -13,11 +13,11 @@ defineProps({
 
                 <!-- icon -->
                 <td class="w-1/3">
-                    <img src="" alt="icon" width="30" class="mx-auto" />
+                    <img :src="day.day.condition.icon" alt="icon" width="30" class="mx-auto" />
                 </td>
 
                 <!-- high/low temp -->
-                <td class="w-1/3 text-right">[Max temperature] / [Min temperature]</td>
+                <td class="w-1/3 text-right">{{ Math.round(day.day.maxtemp_f) }} / {{ Math.round(day.day.mintemp_f) }}</td>
             </tr>
         </table>
     </div>

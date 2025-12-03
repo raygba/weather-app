@@ -1,4 +1,4 @@
 <template>
-    <!-- border -->
-    <div class="w-full h-px bg-gradient-to-r from-white/0 via-white/90 to-white/0 my-10"></div>
+  <!-- border -->
+  <div class="w-72 h-px bg-sky-100 my-10 mx-auto"></div>
 </template>
