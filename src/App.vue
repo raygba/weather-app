@@ -1,44 +1,8 @@
 <script setup>
-import { ref } from 'vue'
-import SearchInput from './components/SearchInput.vue'
-import WeatherCard from './components/WeatherCard.vue'
-
-const places = ref([])
-const addPlace = (data) => {
-  places.value.push(data)
-}
-
-const deletePlace = (name) => {
-  if (confirm('Are you sure?')) {
-    places.value = places.value.filter((p) => p.location.name !== name)
-  }
-}
+import NavBar from './components/NavBar.vue';
 </script>
 
 <template>
-  <main>
-    <h1 class="text-3xl mb-3">The Weather</h1>
-
-    <!-- Date -->
-    <div class="text-lg mb-6">
-      {{ new Date().toLocaleDateString('en-us', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      }) }}
-    </div>
-
-    <!-- Search -->
-    <div>
-      <SearchInput @place-data="addPlace" />
-    </div>
-
-    <!-- Weather card -->
-    <div class="grid grid-cols-2 gap-4">
-      <div v-for="(place, idx) in places" :key="idx">
-        <WeatherCard :place="place" @delete-place="deletePlace" />
-      </div>
-    </div>
-  </main>
+  <NavBar />
+  <router-view></router-view>
 </template>

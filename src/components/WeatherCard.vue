@@ -56,8 +56,8 @@ const removePlace = (placeName) => {
 
         <!-- forecast btn -->
         <div class="flex justify-end items-center gap-1 mt-10">
-            <button @click="showDetail = true">
-                More <i class="fa-solid fa-arrow-up text-sm -mb-px"></i>
+            <button @click="showDetail = true" class="text-xl items-center">
+                info <i class="fa-solid fa-arrow-up text-lg"></i>
             </button>
         </div>
     </div>
