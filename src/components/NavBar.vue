@@ -18,7 +18,3 @@
         </nav>
     </header>
 </template>
-
-<script>
-console.log(new Date().toLocaleDateString())
-</script>

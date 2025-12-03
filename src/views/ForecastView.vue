@@ -17,10 +17,10 @@
                     <div>
                         <div class="text-center flex-1">
                             <p class="text-2xl">
-                                {{ new Date(day.date).toLocaleDateString('en-us', { weekday: 'long' }) }}
+                                {{ new Date(day.date + 'T00:00:00').toLocaleDateString('en-us', { weekday: 'long' }) }}
                             </p>
                             <p class="text-xl">
-                                {{ new Date(day.date).toLocaleDateString('en-us', {
+                                {{ new Date(day.date + 'T00:00:00').toLocaleDateString('en-us', {
                                     month: 'short',
                                     day: 'numeric'
                                 }) }}
