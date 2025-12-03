@@ -9,7 +9,8 @@
                     year: 'numeric',
                     month: 'long',
                     day: 'numeric'
-                }) }}
+                })
+                }}
             </div>
         </div>
         <nav>
@@ -17,3 +18,7 @@
         </nav>
     </header>
 </template>
+
+<script>
+console.log(new Date().toLocaleDateString())
+</script>
