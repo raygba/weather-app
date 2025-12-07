@@ -13,6 +13,11 @@ const router = createRouter({
       name: 'forecast',
       component: () => import(/* webpackChunkName: "forecast" */ '../views/ForecastView.vue')
     },
+    {
+      path: '/hourly',
+      name: 'hourly',
+      component: () => import(/* webpackChunkName: "hourly" */ '../views/HourlyView.vue')
+    },
   ],
 })
 

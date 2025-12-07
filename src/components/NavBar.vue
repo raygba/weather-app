@@ -1,5 +1,5 @@
 <template>
-    <header class="flex">
+    <header class="flex flex-1 justify-around w-[75%] mx-auto">
         <div>
             <router-link id="logo" to="/" class="text-3xl mb-3">The Weather</router-link>
             <!-- Date -->
@@ -13,8 +13,9 @@
                 }}
             </div>
         </div>
-        <nav>
+        <nav class="flex flex-1 justify-evenly">
             <router-link :to="{ name: 'forecast' }">5-Day Forecast</router-link>
+            <router-link :to="{ name: 'hourly' }">Hourly</router-link>
         </nav>
     </header>
 </template>
