@@ -1,19 +1,3 @@
-<template>
-    <main id="app" class="lg:w-[75%] mx-auto">
-        <!-- Search -->
-        <div>
-            <SearchInput @place-data="addPlace" />
-        </div>
-
-        <!-- Weather card -->
-        <div class="grid grid-cols-2 gap-4">
-            <div v-for="(place, idx) in places" :key="idx">
-                <WeatherCard :place="place" @delete-place="deletePlace" />
-            </div>
-        </div>
-    </main>
-</template>
-
 <script setup>
 import { ref } from 'vue'
 import SearchInput from '../components/SearchInput.vue'
@@ -30,3 +14,19 @@ const deletePlace = (name) => {
     }
 }
 </script>
+
+<template>
+    <main id="app" class="lg:w-[75%] mx-auto">
+        <!-- Search -->
+        <div>
+            <SearchInput @place-data="addPlace" />
+        </div>
+
+        <!-- Weather card -->
+        <div class="grid grid-cols-2 gap-4">
+            <div v-for="(place, idx) in places" :key="idx">
+                <WeatherCard :place="place" @delete-place="deletePlace" />
+            </div>
+        </div>
+    </main>
+</template>

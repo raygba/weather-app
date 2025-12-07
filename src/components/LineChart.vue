@@ -1,4 +1,12 @@
 <script setup>
+// get place-data emit from SearchInput -> HourlyView -> LineChart
+const props = defineProps({
+    place: Object
+})
+console.log(props.place)
+
+// imports
+import { ref, watch } from 'vue'
 import { Line } from 'vue-chartjs'
 import {
     Chart as ChartJS,
@@ -10,8 +18,6 @@ import {
     Tooltip,
     Legend
 } from 'chart.js'
-import { ref, onMounted } from 'vue'
-
 ChartJS.register(
     LineElement,
     PointElement,
@@ -22,41 +28,56 @@ ChartJS.register(
     Legend
 )
 
+// initialize chart
 const chartData = ref({
     labels: [],
     datasets: []
 })
-
 const chartOptions = {
     responsive: true,
     maintainAspectRatio: false
 }
 
-async function fetchWeather() {
+// get weather from search query
+async function fetchWeather(place) {
+    if (!place) return
+    // doesnt work right if 2 places have the same name ie Hillsborough CA and Hillsborough NC
+    const query = place.location.name
+    console.log(query)
     const res = await fetch(
-        'http://api.weatherapi.com/v1/forecast.json?key=355022d7f3db4659a6e181723250212&q=id:${searchTerm.query}&days=1'
+        `http://api.weatherapi.com/v1/forecast.json?key=355022d7f3db4659a6e181723250212&q=id:${query}&days=1`
     )
     const data = await res.json()
     const hourly = data.forecast.forecastday[0].hour
-    const times = hourly.map(h => h.time)
-    const tempsArray = hourly.map(h => h.temp_f)
+
+    // map times and temperatures to arrays
+    // convert time to 1 hour format i.e. 1 PM
+    const times = hourly.map(h => {
+        const date = new Date(h.time);
+        return date.toLocaleTimeString([], { hour: 'numeric', hour12: true });
+    });
+    const temps = hourly.map(h => h.temp_f)
+    console.log(times)
+    console.log(temps)
 
     chartData.value = {
         labels: times,
         datasets: [
             {
-                label: "Temperature (°F)",
-                data: tempsArray,
-                borderColor: "rgb(255, 99, 132)",
-                backgroundColor: "rgba(255, 99, 132, 0.3)",
+                label: `Temperature (°F) for ${query}`,
+                data: temps,
+                borderColor: "hsl(164, 100%, 40%)",
+                backgroundColor: "hsl(164, 100%, 40%)",
                 tension: 0.3
             }
         ]
     }
 
 }
-
-onMounted(fetchWeather)
+// Watch for prop changes
+watch(() => props.place, (newPlace) => {
+    fetchWeather(newPlace)
+}, { immediate: true }) // immediate ensures it fetches initially if place is set
 </script>
 
 <template>

@@ -5,7 +5,7 @@
             <SearchInput @place-data="addPlace" />
         </div>
 
-        <!-- Weather card -->
+        <!-- Forecast cards -->
         <div class="grid">
             <div class="grid grid-cols-5 gap-2" v-for="(place, idx) in places" :key="idx">
                 <div class="flex items-center justify-center gap-2 col-span-5 my-5">
