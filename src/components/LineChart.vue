@@ -64,9 +64,9 @@ async function fetchWeather(place) {
     // so not perfect but it's closer than hillsborough CA instead of hillsborough NC.
     const query = place.location.lat + ',' + place.location.lon
     const res = await fetch(
-        `http://api.weatherapi.com/v1/forecast.json?key=355022d7f3db4659a6e181723250212&q=${query}&days=1`
+        `https://api.weatherapi.com/v1/forecast.json?key=355022d7f3db4659a6e181723250212&q=${query}&days=1`
     )
-    // console.log(`http://api.weatherapi.com/v1/forecast.json?key=355022d7f3db4659a6e181723250212&q=${query}&days=1`)
+    // console.log(`https://api.weatherapi.com/v1/forecast.json?key=355022d7f3db4659a6e181723250212&q=${query}&days=1`)
     const data = await res.json()
     const hourly = data.forecast.forecastday[0].hour
 
