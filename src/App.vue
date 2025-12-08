@@ -11,7 +11,7 @@ import NavBar from './components/NavBar.vue';
 <template>
   <NavBar />
   <router-view></router-view>
-  <footer class="w-[75%] mx-auto text-sm">
+  <footer class="w-[75%] mx-auto text-sm py-4">
     <p>Powered by <a href="https://www.weatherapi.com/" title="Free Weather API">WeatherAPI.com</a></p>
   </footer>
 </template>
