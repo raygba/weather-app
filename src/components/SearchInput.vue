@@ -14,7 +14,6 @@ const handleSearch = () => {
             const res = await fetch(`https://api.weatherapi.com/v1/search.json?key=355022d7f3db4659a6e181723250212&q=${searchTerm.query}`)
             const data = await res.json()
             searchTerm.results = data
-            // console.log(searchTerm.results)
         } else {
             searchTerm.results = null
         }
@@ -25,7 +24,6 @@ const getWeather = async (id) => {
     const res = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=355022d7f3db4659a6e181723250212&q=id:${id}&days=5&aqi=no&alerts=no`)
     const data = await res.json()
     emit('place-data', data)
-    // console.log(data)
     searchTerm.query = ''
     searchTerm.results = null
 }

@@ -18,9 +18,7 @@ const removePlace = (placeName) => {
 }
 
 // conditional backgrounds
-const name = props.place.location.name
 const condition = props.place.current.condition.text
-console.log(name + ': ' + condition)
 
 let rainy = condition.toLowerCase().includes('rain')
 let thundery = condition.toLowerCase().includes('thunder')
