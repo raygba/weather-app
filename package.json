@@ -10,7 +10,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "eslint . --fix --cache"
+    "lint": "eslint . --fix --cache",
+    "deploy": "sh deploy.sh"
   },
   "dependencies": {
     "@cubejs-client/core": "^0.31.0",
