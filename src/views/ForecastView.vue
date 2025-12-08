@@ -14,6 +14,26 @@ const deletePlace = (name) => {
 }
 </script>
 
+
+<style scoped>
+#content {
+    min-height: 400px;
+}
+
+.bg-day {
+    background-color: #54a9ff;
+}
+
+.bg-night {
+    background-color: #07223d;
+}
+
+#forecastCard:hover {
+    scale: 1.05;
+    box-shadow: 1px 2px 12px rgba(0, 0, 0, 0.315);
+}
+</style>
+
 <template>
     <main id="app" class="lg:w-[75%] mx-auto">
         <!-- Search -->
@@ -22,7 +42,7 @@ const deletePlace = (name) => {
         </div>
 
         <!-- Forecast cards -->
-        <div class="grid mt-8 mb-16">
+        <div id="content" class="grid mt-8 mb-16">
             <div class="grid grid-cols-5 gap-2" v-for="(place, idx) in places" :key="idx">
                 <div class="flex items-center justify-center gap-2 col-span-5 my-5">
                     <h1 class="text-3xl">5-Day Forecast for <i class="fa-solid fa-location-dot"></i> {{
@@ -63,18 +83,3 @@ const deletePlace = (name) => {
         </div>
     </main>
 </template>
-
-<style scoped>
-.bg-day {
-    background-color: #54a9ff;
-}
-
-.bg-night {
-    background-color: #07223d;
-}
-
-#forecastCard:hover {
-    scale: 1.05;
-    box-shadow: 1px 2px 12px rgba(0, 0, 0, 0.315);
-}
-</style>

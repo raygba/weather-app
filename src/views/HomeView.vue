@@ -15,6 +15,12 @@ const deletePlace = (name) => {
 }
 </script>
 
+<style scoped>
+#content {
+    min-height: 400px;
+}
+</style>
+
 <template>
     <main id="app" class="lg:w-[75%] mx-auto">
         <!-- Search -->
@@ -23,7 +29,7 @@ const deletePlace = (name) => {
         </div>
 
         <!-- Weather card -->
-        <div class="grid grid-cols-2 gap-4 mt-8 mb-16">
+        <div id="content" class="grid grid-cols-2 gap-4 mt-8 mb-16">
             <div v-for="(place, idx) in places" :key="idx">
                 <WeatherCard :place="place" @delete-place="deletePlace" />
             </div>

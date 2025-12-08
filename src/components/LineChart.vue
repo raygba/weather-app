@@ -44,9 +44,6 @@ async function fetchWeather(place) {
     // sometimes shows a nearby location instead i.e. chapel hill instead of hillsborough. 
     // so not perfect but it's closer than hillsborough CA instead of hillsborough NC.
     const query = place.location.lat + ',' + place.location.lon
-    // const placeName = place.location.name + ', ' + place.location.region
-    console.log(query)
-    // console.log(placeName)
     const res = await fetch(
         `http://api.weatherapi.com/v1/forecast.json?key=355022d7f3db4659a6e181723250212&q=${query}&days=1`
     )
@@ -61,8 +58,6 @@ async function fetchWeather(place) {
         return date.toLocaleTimeString([], { hour: 'numeric', hour12: true });
     });
     const temps = hourly.map(h => h.temp_f)
-    // console.log(times)
-    // console.log(temps)
 
     chartData.value = {
         labels: times,

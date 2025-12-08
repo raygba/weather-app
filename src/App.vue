@@ -3,10 +3,6 @@ import NavBar from './components/NavBar.vue';
 </script>
 
 <style>
-  main {
-    min-height: 400px;
-  }
-
   footer p a {
     text-decoration: underline;
   }

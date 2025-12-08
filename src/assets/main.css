@@ -24,4 +24,9 @@
   button {
     cursor: pointer;
   }
+
+  nav>*:hover,
+  .router-link-active:not(#logo) {
+    font-weight: bold;
+  }
 }

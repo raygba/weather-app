@@ -1,9 +1,9 @@
 <template>
-    <header class="flex flex-1 justify-around w-[75%] mx-auto">
-        <div>
-            <h1 class="text-3xl mb-3">The Weather</h1>
+    <header class="flex flex-1 justify-between items-center w-[75%] mx-auto mb-8">
+        <div class="h-fit">
+            <router-link to="/" class="text-3xl mb-3" id="logo">The Weather</router-link>
             <!-- Date -->
-            <div class="text-lg mb-6">
+            <div class="text-lg">
                 {{ new Date().toLocaleDateString('en-us', {
                     weekday: 'long',
                     year: 'numeric',
