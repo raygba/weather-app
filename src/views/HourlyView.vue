@@ -11,12 +11,6 @@ const currentPlace = ref(null)
 const setPlace = (placeData) => {
     currentPlace.value = placeData
 }
-
-// const deletePlace = (name) => {
-//     if (confirm('Do you want to remove ' + name + '?')) {
-//         places.value = places.value.filter((p) => p.location.name !== name)
-//     }
-// }
 </script>
 
 
@@ -29,7 +23,9 @@ const setPlace = (placeData) => {
 
         <!-- Chart -->
         <div class="mt-8 mb-16 text-white">
-            <LineChart :place="currentPlace" />
+            <div>
+                <LineChart :place="currentPlace" />
+            </div>
         </div>
     </main>
 </template>

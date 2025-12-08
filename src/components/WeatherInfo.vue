@@ -4,6 +4,12 @@ defineProps({
 })
 </script>
 
+<style scoped>
+    * {
+        text-shadow: none;
+    }
+</style>
+
 <template>
     <div class="absolute bg-white/80 backdrop-blur-sm text-slate-900 inset-x-0 bottom-0 rounded-t-lg p-8">
         <!-- Close button -->

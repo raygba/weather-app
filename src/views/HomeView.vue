@@ -9,7 +9,7 @@ const addPlace = (data) => {
 }
 
 const deletePlace = (name) => {
-    if (confirm('Are you sure?')) {
+    if (confirm('Do you want to remove ' + name + '?')) {
         places.value = places.value.filter((p) => p.location.name !== name)
     }
 }

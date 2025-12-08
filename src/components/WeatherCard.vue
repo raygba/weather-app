@@ -49,7 +49,7 @@ let blizzardy = condition.toLowerCase().includes('blizzard')
     sleety || icy ? 'bg-hail' : 'bg-clear',
     snowy || blizzardy ? 'bg-snow' : 'bg-clear'
     ]" 
-    class="text-white p-10 rounded-lg shadow-lg gap-6 my-6 relative overflow-hidden">
+    class="weather-card text-white p-10 rounded-lg shadow-lg gap-6 my-6 relative overflow-hidden">
         <!-- Location & time -->
         <div class="mb-2 flex justify-between items-center">
             <div class="flex items-center justify-center gap-2">
@@ -93,6 +93,10 @@ let blizzardy = condition.toLowerCase().includes('blizzard')
 </template>
 
 <style scoped>
+.weather-card {
+    text-shadow: 2px 2px 6px #0000009d;
+}
+
 .bg-clear {
     background-image: url('../assets/images/clear.jpg');
     background-size: cover;
