@@ -22,9 +22,9 @@ const setPlace = (placeData) => {
         </div>
 
         <!-- Chart -->
-        <div class="mt-8 mb-16 text-white">
+        <div class="mt-8 mb-16" style="min-height: 400px">
             <div>
-                <LineChart :place="currentPlace" />
+                <LineChart class="mt-16 mb-32" :place="currentPlace" />
             </div>
         </div>
     </main>
