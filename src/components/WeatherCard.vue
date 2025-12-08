@@ -4,7 +4,7 @@ import BorderLine from './BorderLine.vue'
 import WeatherForecastDay from './WeatherForecastDay.vue';
 import WeatherInfo from './WeatherInfo.vue';
 
-defineProps({
+const props = defineProps({
     place: Object
 })
 
@@ -17,10 +17,39 @@ const removePlace = (placeName) => {
     showDetail.value = false
 }
 
+// conditional backgrounds
+const name = props.place.location.name
+const condition = props.place.current.condition.text
+console.log(name + ': ' + condition)
+
+let rainy = condition.toLowerCase().includes('rain')
+let thundery = condition.toLowerCase().includes('thunder')
+let drizzly = condition.toLowerCase().includes('drizzle')
+
+let cloudy = condition.toLowerCase().includes('cloud')
+let overcasty = condition.toLowerCase().includes('overcast')
+
+let foggy = condition.toLowerCase().includes('fog')
+let misty = condition.toLowerCase().includes('mist')
+
+let sleety = condition.toLowerCase().includes('sleety')
+let icy = condition.toLowerCase().includes('ice')
+
+
+let snowy = condition.toLowerCase().includes('snow')
+let blizzardy = condition.toLowerCase().includes('blizzard')
+
 </script>
 
 <template>
-    <div :class="place.current.is_day === 1 ? 'bg-day' : 'bg-night'" class="text-white p-10 rounded-lg shadow-lg gap-6 my-6 relative overflow-hidden">
+<div :class="[
+    rainy || thundery || drizzly ? 'bg-rain' : 'bg-clear', 
+    cloudy || overcasty ? 'bg-cloudy' : 'bg-clear',
+    foggy || misty ? 'bg-fog' : 'bg-clear',
+    sleety || icy ? 'bg-hail' : 'bg-clear',
+    snowy || blizzardy ? 'bg-snow' : 'bg-clear'
+    ]" 
+    class="text-white p-10 rounded-lg shadow-lg gap-6 my-6 relative overflow-hidden">
         <!-- Location & time -->
         <div class="mb-2 flex justify-between items-center">
             <div class="flex items-center justify-center gap-2">
@@ -64,6 +93,36 @@ const removePlace = (placeName) => {
 </template>
 
 <style scoped>
+.bg-clear {
+    background-image: url('../assets/images/clear.jpg');
+    background-size: cover;
+}
+
+.bg-rain {
+    background-image: url('../assets/images/rain.jpg');
+    background-size: cover;
+}
+
+.bg-cloudy {
+    background-image: url('../assets/images/cloudy.jpg');
+    background-size: cover;
+}
+
+.bg-fog {
+    background-image: url('../assets/images/fog.jpg');
+    background-size: cover;
+}
+
+.bg-hail {
+    background-image: url('../assets/images/hail.jpg');
+    background-size: cover;
+}
+
+.bg-snow {
+    background-image: url('../assets/images/snow.jpg');
+    background-size: cover;
+}
+
 .bg-day {
     background-color: #54a9ff;
 }

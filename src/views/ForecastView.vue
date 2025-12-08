@@ -2,6 +2,10 @@
 import { ref } from 'vue'
 import SearchInput from '../components/SearchInput.vue'
 
+// const props = defineProps({
+//     place: Object
+// })
+
 const places = ref([])
 const addPlace = (data) => {
     places.value.push(data)
@@ -12,6 +16,28 @@ const deletePlace = (name) => {
         places.value = places.value.filter((p) => p.location.name !== name)
     }
 }
+
+// conditional backgrounds
+// console.log(places.value)
+// const name = places.value.location.name
+// const condition = places.value.forecastday.condition.text
+// console.log(name + ': ' + condition)
+
+// let rainy = condition.toLowerCase().includes('rain')
+// let thundery = condition.toLowerCase().includes('thunder')
+// let drizzly = condition.toLowerCase().includes('drizzle')
+
+// let cloudy = condition.toLowerCase().includes('cloud')
+// let overcasty = condition.toLowerCase().includes('overcast')
+
+// let foggy = condition.toLowerCase().includes('fog')
+// let misty = condition.toLowerCase().includes('mist')
+
+// let sleety = condition.toLowerCase().includes('sleety')
+// let icy = condition.toLowerCase().includes('ice')
+
+// let snowy = condition.toLowerCase().includes('snow')
+// let blizzardy = condition.toLowerCase().includes('blizzard')
 </script>
 
 
@@ -53,8 +79,13 @@ const deletePlace = (name) => {
                         </button>
                     </div>
                 </div>
-                <div id="forecastCard"
-                    class="bg-day text-white py-10 rounded-lg shadow-lg gap-3 mb-6 relative overflow-hidden"
+                <div id="forecastCard" :class="[
+                    rainy || thundery || drizzly ? 'bg-rain' : 'bg-clear',
+                    cloudy || overcasty ? 'bg-cloudy' : 'bg-clear',
+                    foggy || misty ? 'bg-fog' : 'bg-clear',
+                    sleety || icy ? 'bg-hail' : 'bg-clear',
+                    snowy || blizzardy ? 'bg-snow' : 'bg-clear'
+                ]" class="bg-day text-white py-10 rounded-lg shadow-lg gap-3 mb-6 relative overflow-hidden"
                     v-for="(day, idx) in place.forecast.forecastday" :key="idx">
                     <div>
                         <div class="text-center flex-1">
