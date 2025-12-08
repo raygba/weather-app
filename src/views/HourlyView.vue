@@ -9,7 +9,7 @@ const currentPlace = ref(null)
 
 // called when SearchInput emits 'place-data'
 const setPlace = (placeData) => {
-  currentPlace.value = placeData
+    currentPlace.value = placeData
 }
 
 // const deletePlace = (name) => {
@@ -28,8 +28,7 @@ const setPlace = (placeData) => {
         </div>
 
         <!-- Chart -->
-        <!-- <div v-for="(place, idx) in places" :key="idx"> -->
-        <div>
+        <div class="mt-8 mb-16 text-white">
             <LineChart :place="currentPlace" />
         </div>
     </main>

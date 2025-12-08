@@ -1,3 +1,19 @@
+<script setup>
+import { ref } from 'vue'
+import SearchInput from '../components/SearchInput.vue'
+
+const places = ref([])
+const addPlace = (data) => {
+    places.value.push(data)
+}
+
+const deletePlace = (name) => {
+    if (confirm('Do you want to remove ' + name + '?')) {
+        places.value = places.value.filter((p) => p.location.name !== name)
+    }
+}
+</script>
+
 <template>
     <main id="app" class="lg:w-[75%] mx-auto">
         <!-- Search -->
@@ -6,13 +22,15 @@
         </div>
 
         <!-- Forecast cards -->
-        <div class="grid">
+        <div class="grid mt-8 mb-16">
             <div class="grid grid-cols-5 gap-2" v-for="(place, idx) in places" :key="idx">
                 <div class="flex items-center justify-center gap-2 col-span-5 my-5">
                     <h1 class="text-3xl">5-Day Forecast for <i class="fa-solid fa-location-dot"></i> {{
                         place.location.name }}</h1>
                     <div>
-                        <button @click="deletePlace(place.location.name)">remove</button>
+                        <button @click="deletePlace(place.location.name)" class="text-2xl ms-16">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
                     </div>
                 </div>
                 <div id="forecastCard"
@@ -45,22 +63,6 @@
         </div>
     </main>
 </template>
-
-<script setup>
-import { ref } from 'vue'
-import SearchInput from '../components/SearchInput.vue'
-
-const places = ref([])
-const addPlace = (data) => {
-    places.value.push(data)
-}
-
-const deletePlace = (name) => {
-    if (confirm('Do you want to remove ' + name + '?')) {
-        places.value = places.value.filter((p) => p.location.name !== name)
-    }
-}
-</script>
 
 <style scoped>
 .bg-day {
