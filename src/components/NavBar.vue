@@ -1,7 +1,7 @@
 <template>
     <header class="flex flex-1 justify-between items-center w-[75%] mx-auto mb-8">
         <div class="h-fit">
-            <router-link to="/" class="text-3xl mb-3" id="logo">The Weather</router-link>
+            <router-link to="/" class="text-3xl mb-3 fw-bold" id="logo">The Weather</router-link>
             <!-- Date -->
             <div class="text-lg">
                 {{ new Date().toLocaleDateString('en-us', {
