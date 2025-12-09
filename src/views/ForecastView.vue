@@ -31,7 +31,7 @@ const deletePlace = (name) => {
 </style>
 
 <template>
-    <main id="app" class="lg:w-[75%] mx-auto">
+    <main id="app" class="w-full lg:w-[75%] mx-auto">
         <!-- Search -->
         <div>
             <SearchInput @place-data="addPlace" />
@@ -39,7 +39,7 @@ const deletePlace = (name) => {
 
         <!-- Forecast cards -->
         <div id="content" class="grid mt-8 mb-16">
-            <div class="grid grid-cols-5 gap-2" v-for="(place, idx) in places" :key="idx">
+            <div class="md:grid md:grid-cols-5 gap-1 md:gap-2" v-for="(place, idx) in places" :key="idx">
                 <div class="flex items-center justify-center gap-2 col-span-5 my-5">
                     <h1 class="text-3xl">5-Day Forecast for <i class="fa-solid fa-location-dot"></i> {{
                         place.location.name }}</h1>
@@ -49,7 +49,7 @@ const deletePlace = (name) => {
                         </button>
                     </div>
                 </div>
-                <div id="forecastCard" class="bg-day text-white py-10 rounded-lg shadow-lg gap-3 mb-6 relative overflow-hidden"
+                <div id="forecastCard" class="bg-day text-white py-10 rounded-lg shadow-lg gap-3 mb-3 md:mb-6 relative overflow-hidden"
                     v-for="(day, idx) in place.forecast.forecastday" :key="idx">
                     <div>
                         <div class="text-center flex-1">
